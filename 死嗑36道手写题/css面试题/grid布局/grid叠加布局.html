@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .box {
+      width: 600px;
+      height: 400px;
+      background-color: black;
+      border-radius: 5px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      padding: 10px 10px 5px 10px;
+    }
+
+    .top {
+      height: 300px;
+      background-color: blueviolet;
+      display: grid;
+      border-radius: 5px;
+      padding: 10px;
+    }
+
+    .pic {
+      width: 100%;
+      height: 100%;
+      background-color: bisque;
+      grid-area: 1/1/1/1;
+      color: black;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 36px;
+    }
+
+    .zizhi {
+      width: 80px;
+      height: 30px;
+      border-radius: 5px;
+      text-align: center;
+      line-height: 30px;
+      color: white;
+      background-color: cornflowerblue;
+      grid-area: 1/1/1/1;
+      justify-self: flex-end;
+      align-self: flex-start;
+      margin-top: 15px;
+    }
+
+    .gengxin {
+      grid-area: 1/1/1/1;
+      justify-self: flex-end;
+      align-self: flex-end;
+      margin: 0 10px 15px 0;
+      color: white;
+      background-color: rgba(0, 0, 0, 0.6);
+      padding: 10px;
+      border-radius: 5px;
+    }
+
+    .big {
+      color: white;
+      font-size: 28px;
+      font-weight: 700;
+    }
+
+    .little {
+      color: white;
+      font-size: 18px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box">
+    <div class="top">
+      <div class="pic">图片</div>
+      <div class="zizhi">自制电影</div>
+      <div class="gengxin">更新到18集</div>
+    </div>
+    <div class="bottom">
+      <div class="big">万古神王</div>
+      <div class="little">神王再生 万古为尊!</div>
+    </div>
+  </div>
+</body>
+
+</html>

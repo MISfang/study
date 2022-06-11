@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .box {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    .common {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      font-size: 36px;
+      font-weight: 700;
+      border-radius: 40px;
+    }
+
+    .top {
+      height: 200px;
+      background-color: aqua;
+    }
+
+    .main {
+      flex: 1;
+      background-color: blueviolet;
+    }
+
+    .bottom {
+      height: 200px;
+      background-color: aqua;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box">
+    <div class="common top">top</div>
+    <div class="common main">main</div>
+    <div class="common bottom">bottom</div>
+  </div>
+</body>
+
+</html>

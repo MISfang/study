@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="father">
+    <a id="child" href="https://toutiao.com">
+      123
+    </a>
+  </div>
+
+  <script>
+    // var name = "222";
+    // var a = {
+    //   name: "111",
+    //   say: function () {
+    //     console.info(this.name);
+    //   }
+    // };
+    // var fun = a.say;
+    // fun();
+    // a.say();
+
+    // var b = {
+    //   name: "333",
+    //   say: function (fun) {
+    //     fun();
+    //   }
+    // };
+    // b.say(a.say);
+    // b.say = a.say;
+    // b.say();
+
+    // for (var i = 0; i < 5; i++) {
+    //   setTimeout(function () {
+    //     console.log(i);
+    //   }, 0);
+    // }
+
+    // for (var i = 0; i < 5; i++) {
+    //   (function (i) {
+    //     setTimeout(function () {
+    //       console.log(i);
+    //     }, 5000);
+    //   })(i);
+    // }
+    // console.log(i);
+
+    const testA = (fn) => {
+      fn(888)
+    }
+    const testB = (num) => {
+      console.log('%c 🥠 num: ', 'font-size:20px;background-color: #6EC1C2;color:#fff;', num);
+      console.log('%c 🍞 this: ', 'font-size:20px;background-color: #EA7E5C;color:#fff;', this);
+    }
+    testA(testB);
+
+    const test = [1, 2, 3, 4, 5, 6, 7]
+    test.filter(num => {
+      console.log('%c 🍡 this: ', 'font-size:20px;background-color: #2EAFB0;color:#fff;', this);
+      return num > 3
+    })
+  </script>
+</body>
+
+</html>

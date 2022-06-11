@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <script>
+    let isMount = true
+    let workInProgressHook = null
+
+    const run = () => {
+      workInProgressHook = fiber.memoizedState
+      const app = fiber.stateNode()
+      isMount = false
+      return app
+    }
+
+    const dispatchAction = (quene, action) => {
+      const update = {
+        action,
+        next: null
+      }
+      if (quene.pending === null) {
+        update.next = update
+      } else {
+        update.next = quene.pending.next
+        quene.pending.next = update
+      }
+      quene.pending = update
+      run()
+    }
+
+    const useFState = (initState) => {
+      let hook
+      if (isMount) {
+        hook = {
+          queue: {
+            pending: null,
+          },
+          memoizedState: initState,
+          next: null
+        }
+        if (!fiber.memoizedState) {
+          fiber.memoizedState = hook
+        } else {
+          workInProgressHook.next = hook
+        }
+
+        workInProgressHook = hook
+      } else {
+        hook = workInProgressHook
+        workInProgressHook = workInProgressHook.next
+      }
+
+      let baseState = hook.memoizedState
+      if (hook.queue.pending) {
+        let firstUpdate = hook.queue.pending.next
+        do {
+          const action = firstUpdate.action
+          baseState = action(baseState)
+          firstUpdate = firstUpdate.next
+        } while (firstUpdate !== hook.queue.pending.next)
+        hook.queue.pending = null
+      }
+      hook.memoizedState = baseState
+
+      return [baseState, dispatchAction.bind(null, hook.queue)]
+    }
+    const App = () => {
+      const [count, setCount] = useFState(0)
+      console.log('%c 🍑 isMount: ', 'font-size:20px;background-color: #ED9EC7;color:#fff;', isMount);
+
+      console.log('%c 🍏 count: ', 'font-size:20px;background-color: #4b4b4b;color:#fff;', count);
+
+      return {
+        onClick() {
+          setCount(count => count + 1)
+          setCount(count => count + 10)
+          setCount(count => count + 66)
+          setCount(count => count + 88)
+        }
+      }
+    }
+
+    const fiber = {
+      memoizedState: null,
+      stateNode: App
+    }
+
+    window.app = run()
+  </script>
+</body>
+
+</html>

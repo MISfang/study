@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .box {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+
+      width: 600px;
+      height: 600px;
+      border-radius: 30px;
+      background-color: burlywood;
+      display: grid;
+      grid-template:
+        "a1 a2 a3"1fr "a4 a5 a6"1fr "a7 a8 a9"1fr /1fr 1fr 1fr;
+      justify-items: center;
+      align-items: center;
+    }
+
+    .box .dot {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      background-color: blueviolet;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      font-size: 28px;
+      font-weight: 700;
+    }
+
+    .dot:nth-child(1) {
+      grid-area: a1;
+    }
+
+    .dot:nth-child(2) {
+      grid-area: a3;
+    }
+
+    .dot:nth-child(3) {
+      grid-area: a5;
+    }
+
+    .dot:nth-child(4) {
+      grid-area: a7;
+    }
+
+    .dot:nth-child(5) {
+      grid-area: a9;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box">
+    <div class="dot">1</div>
+    <div class="dot">3</div>
+    <div class="dot">5</div>
+    <div class="dot">7</div>
+    <div class="dot">9</div>
+  </div>
+</body>
+
+</html>

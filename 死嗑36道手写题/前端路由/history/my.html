@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .box {
+      width: 800px;
+      height: 100px;
+      background-color: blueviolet;
+      position: absolute;
+      top: 10%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      border-radius: 20px;
+      padding: 0 20px;
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .box>div {
+      display: block;
+      width: 80px;
+      height: 80px;
+      background-color: #fff;
+      border-radius: 50px;
+      font-size: 36px;
+      font-weight: 700;
+      line-height: 80px;
+      text-align: center;
+      text-decoration: none;
+    }
+
+    .component {
+      width: 200px;
+      height: 200px;
+      background-color: blueviolet;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      border-radius: 50px;
+      line-height: 200px;
+      text-align: center;
+      font-size: 48px;
+      font-weight: 700;
+      color: white;
+    }
+
+    .component404 {
+      width: 200px;
+      height: 200px;
+      background-color: #e41a6a;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      border-radius: 50px;
+      line-height: 200px;
+      text-align: center;
+      font-size: 24px;
+      font-weight: 700;
+      color: white;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box">
+    <div link="A">A</div>
+    <div link="B">B</div>
+    <div link="C">C</div>
+    <div link="D">D</div>
+    <div link="E">E</div>
+    <div link="F">F</div>
+    <div link="G">G</div>
+    <div link="H">H</div>
+  </div>
+  <div id="app"></div>
+  <script src="./my.js"></script>
+</body>
+
+</html>

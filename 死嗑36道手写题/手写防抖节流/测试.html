@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <input type="text">
+
+  <script>
+    var debounce = function (fn, delay, immediate) {
+      if (immediate === void 0) {
+        immediate = false;
+      }
+      var timer = null;
+      var isInvoke = false;
+      return function () {
+        var _this = this;
+        var args = [];
+        for (var _i = 0; _i < arguments.length; _i++) {
+          args[_i] = arguments[_i];
+        }
+        timer && clearTimeout(timer);
+        if (!isInvoke && immediate) {
+          fn.apply(this, args);
+          isInvoke = true;
+        } else {
+          timer = setTimeout(function () {
+            fn.apply(_this, args);
+            isInvoke = false;
+          }, delay);
+        }
+      };
+    };
+
+    var throttle = function (fn, interval) {
+      var lastTime = 0;
+      var _throttle = function () {
+        var args = [];
+        for (var _i = 0; _i < arguments.length; _i++) {
+          args[_i] = arguments[_i];
+        }
+        var nowTime = new Date().getTime();
+        var remainTime = interval - (nowTime - lastTime);
+        if (remainTime <= 0) {
+          fn.apply(this, args);
+          lastTime = nowTime;
+        }
+      };
+      return _throttle;
+    };
+
+    const input1 = document.querySelector('input')
+    let count = 0
+    input1.oninput = throttle(function (e) {
+      console.log('%c 🥤 `发送请求`: ', 'font-size:20px;background-color: #F5CE50;color:#fff;',
+        `发送了第${++count}次网路请求`, this, e.data);
+    }, 500)
+  </script>
+</body>
+
+</html>

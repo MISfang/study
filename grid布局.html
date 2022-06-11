@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .box {
+      width: 600px;
+      height: 600px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      display: grid;
+      grid-template-areas:
+        'a a a'
+        'a b c'
+        'a c b';
+      grid-template-rows: repeat(3, 1fr);
+      grid-template-columns: repeat(3, 1fr);
+
+      gap: 10px;
+    }
+
+    .a {
+      background-color: aqua;
+      grid-area: a;
+    }
+
+    .b {
+      background-color: blueviolet;
+      grid-area: b;
+    }
+
+    .c {
+      background-color: black;
+      grid-area: c;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box">
+    <div class="a"></div>
+    <div class="b"></div>
+    <div class="c"></div>
+  </div>
+</body>
+
+</html>
