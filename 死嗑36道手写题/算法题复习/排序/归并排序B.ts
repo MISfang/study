@@ -1,23 +1,22 @@
-const mergeSort = (arr: number[]): number[] => {
+const mergeSort = (arr: number[]) => {
   if (arr.length <= 1) return arr
-  const midIdx = arr.length >> 1;
-  const left = arr.slice(0, midIdx);
-  const right = arr.slice(midIdx)
-  const orderLeft = mergeSort(left)
-  const orderRight = mergeSort(right)
+  const mid = arr.length >> 1;
+  const l = arr.slice(0, mid);
+  const r = arr.slice(mid);
+  const left = mergeSort(l);
+  const right = mergeSort(r);
   const res: number[] = []
-  while (orderLeft.length && orderRight.length) {
-    res.push(orderLeft[0] > orderRight[0] ? orderRight.shift()! : orderLeft.shift()!)
+  while (left.length && right.length) {
+    res.push(left[0] > right[0] ? right?.shift()! : left.shift()!)
   }
-  while (orderLeft.length) {
-    res.push(orderLeft.shift()!)
+  while (left.length) {
+    res.push(left.shift()!)
   }
-  while (orderRight.length) {
-    res.push(orderRight.shift()!)
+  while (right.length) {
+    res.push(right.shift()!)
   }
   return res
 }
-
 
 const res = [1, 8, 7, 9, 5, 67, 874, 5, 45, 78, 6, 14, 57, 5, 7]
 

@@ -1,14 +1,13 @@
-const selectSort = (arr: number[]) => {
+const selectSort = (arr: number[]): number[] => {
   for (let i = 0; i < arr.length; i++) {
-    let index = i
+    let minIdx = i
     for (let j = i; j < arr.length; j++) {
-      if (arr[j] < arr[index]) index = j
+      if (arr[j] < arr[minIdx]) minIdx = j
     }
-    [arr[i], arr[index]] = [arr[index], arr[i]]
+    [arr[i], arr[minIdx]] = [arr[minIdx], arr[i]]
   }
   return arr
 }
-
 
 const arr2 = [1, 8, 5, 79, 4, 5, 7, 88, 45, 45, 1, 2, 4, 7, 5, 6, 4, 70]
 

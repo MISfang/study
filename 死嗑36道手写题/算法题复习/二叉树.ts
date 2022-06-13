@@ -1,0 +1,10 @@
+class TreeNode {
+  public val: number;
+  public left: TreeNode | null;
+  public right: TreeNode | null;
+  constructor(val?: number, left?: TreeNode | null, right?: TreeNode | null) {
+    this.val = val ?? 0;
+    this.left = left ?? null;
+    this.right = right ?? null;
+  }
+}

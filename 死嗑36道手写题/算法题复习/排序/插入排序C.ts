@@ -1,7 +1,7 @@
-const insertSort = (arr: number[]) => {
+const insertSort = (arr: number[]): number[] => {
   for (let i = 0; i < arr.length; i++) {
-    const temp = arr[i]
     let j = i
+    const temp = arr[i]
     while (j) {
       if (arr[j - 1] > temp) {
         arr[j] = arr[j - 1]
