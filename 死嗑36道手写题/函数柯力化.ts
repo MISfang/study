@@ -1,16 +1,17 @@
-const Fcurry = function (cb: Function) {
-  let len = cb.length
-  let arg: any[] = []
-  const calc = function (...arg1) {
-    arg = [...arg, ...arg1]
-    if (arg.length >= len) {
-      return cb.apply(this, arg)
+const Fcurry = function (fn: Function) {
+  const len = fn.length
+  let args = []
+  function _curry(...args1: any[]) {
+    const newArgs = [...args, ...args1]
+    if (newArgs.length >= len) {
+      return fn.apply(this, args)
     } else {
-      return calc
+      return _curry
     }
   }
-  return calc
+  return _curry
 }
+
 
 const test = (a, b, c, d, e, f) => a * b * c * d * e * f
 const newFn = Fcurry(test)
