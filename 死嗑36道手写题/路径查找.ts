@@ -69,12 +69,29 @@ interface Item {
 }
 
 // 用回溯算法
-const find = (target: string, tree: Item[]): string | string[] => {
-  let res: string[] = [];
-  const dfs = (list: Item[], path: string[]) => {
-    for (let i = 0; i < list.length; i++) {
-      const { name, id, children } = list[i]
-      path.push(`${id}-${name}`)
+// const find = (target: string, tree: Item[]): string | string[] => {
+//   let res: string[] = [];
+//   const dfs = (list: Item[], path: string[]) => {
+//     for (let i = 0; i < list.length; i++) {
+//       const { name, id, children } = list[i]
+//       path.push(`${id}-${name}`)
+//       if (name === target) {
+//         res = path
+//         return
+//       }
+//       children && dfs(children, [...path])
+//       path.pop()
+//     }
+//   }
+//   dfs(tree, [])
+//   return !res.length ? '不存在' : res
+// }
+const find = (target: string, tree: Item[]) => {
+  let res: string | string[] = '要查找的名称不存在'
+  const dfs = (nodeList: Item[], path: string[] = []) => {
+    for (let i = 0; i < nodeList.length; i++) {
+      const { id, name, children } = nodeList[i]
+      path.push(`${id}${name}`)
       if (name === target) {
         res = path
         return
@@ -83,28 +100,12 @@ const find = (target: string, tree: Item[]): string | string[] => {
       path.pop()
     }
   }
-  dfs(tree, [])
-  return !res.length ? '不存在' : res
+  dfs(tree)
+  return res
 }
-// const find = (target: string, tree: Item[]): string[] | string => {
-//   let res: string[] = [];
-//   const dfs = (nodeList: Item[], path: string[]) => {
-//     for (let i = 0; i < nodeList.length; i++) {
-//       const { name, children } = nodeList[i];
-//       path.push(name);
-//       if (name === target) {
-//         res = path
-//         return
-//       }
-//       children && dfs(children, [...path]);
-//       path.pop()
-//     }
-//   }
-//   dfs(tree, [])
-//   return !res.length ? 'target不存在!' : res
-// }
 
-const res = find('黄泛区', tree)
+
+const res = find('黄泛区66', tree)
 console.log('%c 🍜 res: ', 'font-size:20px;background-color: #3F7CFF;color:#fff;', res);
 
 

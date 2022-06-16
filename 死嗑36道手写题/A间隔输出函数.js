@@ -3,13 +3,13 @@
 // const repectFunc = repect(console.log, 4, 3000)
 // repectFunc('helloworld')会输出四次，每次间隔三秒
 
-const repect = function (func, times, wait) {
-  return function (str) {
-    func(str);
+const repect = (fn, times, wait) => {
+  return (value) => {
+    fn(value);
     let count = 2;
     const timer = setInterval(() => {
       if (count >= times) clearInterval(timer);
-      func(str);
+      fn(value);
       count++;
     }, wait);
   };
@@ -17,7 +17,7 @@ const repect = function (func, times, wait) {
 
 const repectFunc = repect((value) => {
   console.log(value, new Date().getSeconds());
-}, 3, 3000);
+}, 10, 2000);
 repectFunc('你好啊世界');
 
 // // 使用 unhandledrejection 来拦截全局错误  （这个是对的）
