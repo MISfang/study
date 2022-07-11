@@ -1,0 +1,15 @@
+{
+  "name": "fang",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "方宇龙",
+  "license": "ISC",
+  "bin": "bin/enter.js",
+  "dependencies": {
+    "commander": "^9.3.0"
+  }
+}
