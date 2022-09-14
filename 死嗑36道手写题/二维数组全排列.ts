@@ -20,3 +20,4 @@ const getRes = (arr: string[][]) => {
 
 const list = getRes(test)
 console.log('%c 🎂 list: ', 'font-size:20px;background-color: #93C0A4;color:#fff;', list);
+
