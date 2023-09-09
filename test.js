@@ -1,13 +1,15 @@
-const test = () => {
-  return 'fulfiled';
-};
+var testObj = {};
 
-const test2 = () => Math.random() > 0.5 ? test : null;
+function doTwoWayObj() {
+    testObj[testObj['name'] = 'fangyulong'] = 'name';
+}
+doTwoWayObj();
+console.log("%c 🥟 testObj", "font-size:16px;color:#93c0a4", testObj);
 
-setInterval(() => {
-  const res = test2()?.();
-  if (res) {
-    console.log('%c 🥔 res: ', 'font-size:20px;background-color: #6EC1C2;color:#fff;', res);
-  }
-  console.log('%c 🍗 --------------------------------: ', 'font-size:20px;background-color: #3F7CFF;color:#fff;', '--------------------------------');
-}, 500);
+var testEnum;
+(function(testEnum) {
+    testEnum[testEnum["Name"] = 0] = "Name";
+    testEnum[testEnum["Name2"] = 1] = "Name2";
+    testEnum[testEnum["Name3"] = 2] = "Name3";
+})(testEnum || (testEnum = {}));
+console.log("%c 🍕 testEnum", "font-size:16px;color:#6ec1c2", testEnum);
